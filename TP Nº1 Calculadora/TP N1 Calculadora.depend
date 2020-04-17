@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1586467697 source:c:\users\fede\desktop\tp n1 calculadora\biblioteca calculadora.c
+	"Biblioteca calculadora.h"
+
+1586467688 c:\users\fede\desktop\tp n1 calculadora\biblioteca calculadora.h
+
+1587081168 source:c:\users\fede\desktop\tp n1 calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"input.h"
+
+1586452733 c:\users\fede\desktop\tp n1 calculadora\biblioteca calculadora.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca Calculadora.h"
+	"Biblioteca calculadora.c"
+
+1586874976 c:\users\fede\desktop\tp n1 calculadora\input.h
+
+1586876215 source:c:\users\fede\desktop\tp n1 calculadora\input.c
+	<stdio.h>
+	<stdlib.h>
+	"input.h"
+
+1586876215 source:c:\funciones en c\tp n1 calculadora\tp_laboratorio_1\tp nº1 calculadora\input.c
+	<stdio.h>
+	<stdlib.h>
+	"input.h"
+
+1586874976 c:\funciones en c\tp n1 calculadora\tp_laboratorio_1\tp nº1 calculadora\input.h
+
+1587081168 source:c:\funciones en c\tp n1 calculadora\tp_laboratorio_1\tp nº1 calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"input.h"
+
