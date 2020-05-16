@@ -82,26 +82,26 @@
 	<stdio.h>
 	<stdlib.h>
 
-1589596829 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.c
+1589597856 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.c
 	"auxiliarFunctions.h"
 	<stdio.h>
 	<stdlib.h>
 
-1589596978 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.h
+1589597856 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.h
 	<stdio.h>
 	<string.h>
 
-1589595485 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
+1589643610 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
 	<stdio.h>
 	<stdlib.h>
 	"auxiliarFunctions.h"
 	"ArrayEmployees.h"
 
-1589595300 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.h
+1589644703 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.h
 	<stdio.h>
 	<string.h>
 
-1589596547 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
+1589643610 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
 	"ArrayEmployees.h"
 	"auxiliarFunctions.h"
 

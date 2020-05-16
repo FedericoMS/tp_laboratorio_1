@@ -16,42 +16,6 @@ char menu()
 
 
 
-void createAnEmployee (Employee arrayEmployees[], int length)
-{
-  Employee anEmployee;
-
-    system("cls");
-    anEmployee.id = generateNewID(arrayEmployees, length);
-    getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
-    getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
-    anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
-    anEmployee.sector = getInt("Ingrese el sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
-    addEmployee(arrayEmployees, length, anEmployee.id, anEmployee.name, anEmployee.lastName, anEmployee.salary, anEmployee.sector);
-
-
-}
-
-int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char lastName[],float salary,int sector)
-{
-    int indice;
-    indice = findEmptyPlace(arrayEmployees, length);
-    if(indice != -1)
-    {
-        arrayEmployees[indice].id = id;
-        strcpy(arrayEmployees[indice].name, name);
-        strcpy(arrayEmployees[indice].lastName, lastName);
-        arrayEmployees[indice].salary = salary;
-        arrayEmployees[indice].sector = sector;
-        arrayEmployees[indice].status = OCUPADO;
-
-    }
-    else
-    {
-        printf("No hay lugar\n");
-    }
-    return indice;
-}
-
 
 int findEmptyPlace(Employee arrayEmployees [],int length)
 {
@@ -83,11 +47,10 @@ void modifyEmployee(Employee arrayEmployees[], int length)
         if(respuesta == 's')
         {
             printEmployees(arrayEmployees, length);
-            printf("Ingrese el ID del empleado que quiere modificar: ");
-            scanf("%d", &idAux);
+            idAux = getInt("Ingrese el ID del empleado para modificar ", "Error, el valor ingresado no es valido", 100, 1200);
             for(i=0; i<length; i++)
             {
-                if(idAux == arrayEmployees[i].id && arrayEmployees[i].status == OCUPADO)
+                if(idAux == arrayEmployees[i].id)
                 {
                     arrayEmployees[i] = modifyItem(arrayEmployees[i]);
                     existeEmpleado = 1;
@@ -143,7 +106,7 @@ Employee modifyItem(Employee anEmployee)
             }
             else
             {
-                printf("No se modifico el valor");
+                printf("No se modifico el nombre\n");
             }
             fflush(stdin);
             break;
@@ -160,7 +123,7 @@ Employee modifyItem(Employee anEmployee)
             }
             else
             {
-                printf("No se modifico el valor");
+                printf("No se modifico el apellido\n");
             }
             fflush(stdin);
             break;
@@ -176,7 +139,7 @@ Employee modifyItem(Employee anEmployee)
             }
             else
             {
-                printf("No se modifico el valor");
+                printf("No se modifico el salario\n");
             }
             fflush(stdin);
             break;
@@ -192,7 +155,7 @@ Employee modifyItem(Employee anEmployee)
             }
             else
             {
-                printf("No se modifico el valor");
+                printf("No se modifico el sector\n");
             }
              fflush(stdin);
         case 'e':
@@ -207,14 +170,50 @@ Employee modifyItem(Employee anEmployee)
 }
 
 
+void createAnEmployee (Employee arrayEmployees[], int length)
+{
+  Employee anEmployee;
 
-void reportInformation(Employee arrayEmployees [], int length)
+    system("cls");
+    anEmployee.id = generateNewID(arrayEmployees, length);
+    getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
+    getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
+    anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
+    anEmployee.sector = getInt("Ingrese el sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
+    addEmployee(arrayEmployees, length, anEmployee.id, anEmployee.name, anEmployee.lastName, anEmployee.salary, anEmployee.sector);
+
+
+}
+
+int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char lastName[],float salary,int sector)
+{
+    int indice;
+    indice = findEmptyPlace(arrayEmployees, length);
+    if(indice != -1)
+    {
+        arrayEmployees[indice].id = id;
+        strcpy(arrayEmployees[indice].name, name);
+        strcpy(arrayEmployees[indice].lastName, lastName);
+        arrayEmployees[indice].salary = salary;
+        arrayEmployees[indice].sector = sector;
+        arrayEmployees[indice].status = OCUPADO;
+
+    }
+    else
+    {
+        printf("No hay lugar\n");
+    }
+    return indice;
+}
+
+
+void getAverageAndSortedList(Employee arrayEmployees [], int length)
 {
     if(verifyExistenceOfEmployees(arrayEmployees, length))
     {
         system("cls");
         char opcion;
-        printf("\n a. Lista con los empleados ordenados alfabeticamente por apellido y sector.");
+        printf("\n a. Ordenar y listar los empleados alfabeticamente por apellido y sector");
         printf("\n b. Promedio de sueldos y la cantidad de empleados que superan el salario promedio.");
         printf("\n c. Salir\n");
         opcion = getLetter("Ingrese una letra de la lista para seleccionar una opcion\n", "Error, opcion no valida\n");
@@ -226,8 +225,8 @@ void reportInformation(Employee arrayEmployees [], int length)
             break;
 
         case 'b':
-            reportAverageSalary(averageSalaryAmongEmployees(arrayEmployees, length));  //devuelve un float
-            printf("La cantidad de empleados con salarios superior al promedio son: %d\n", salariesAboveTheAverage(arrayEmployees, length));  //devuelve un int
+            printf("El promedio de sueldos entre empleados de la compania es %.2f\n", averageSalaryAmongEmployees(arrayEmployees, length));
+            printf("La cantidad de empleados con salarios superior al promedio son: %d\n", salariesAboveTheAverage(arrayEmployees, length));
             break;
 
         }
@@ -239,25 +238,12 @@ void reportInformation(Employee arrayEmployees [], int length)
 
 }
 
-void reportAverageSalary(float promedio)
-{
-    if(promedio > 0)
-    {
-        printf("El salario promedio entre todos los empleados es: %.2f\n", promedio);
-
-    }
-    else
-    {
-        printf("No hay empleados para calcular promedio\n");
-    }
-}
-
 
 float averageSalaryAmongEmployees(Employee arrayEmployees [], int length)
 {
     int i;
-    int cantidadDeEmpleados = 0;
     int sumatoriaDeSalarios = 0;
+    int cantidadDeEmpleados = 0;
     float promedioSueldos = 0;
     for(i=0; i<length; i++)
     {
@@ -267,7 +253,8 @@ float averageSalaryAmongEmployees(Employee arrayEmployees [], int length)
             cantidadDeEmpleados++;
         }
     }
-    return promedioSueldos  = promedio(sumatoriaDeSalarios, cantidadDeEmpleados);;
+    promedioSueldos  = promedio(sumatoriaDeSalarios, cantidadDeEmpleados);
+    return promedioSueldos;
 }
 
 float promedio(int acumuladorValores, int cantidadValores)
@@ -284,7 +271,7 @@ int salariesAboveTheAverage(Employee arrayEmployees [], int length)
 
     for(i=0; i<length; i++)
     {
-        if(arrayEmployees[i].status == OCUPADO && arrayEmployees[i].salary > averageSalaryAmongEmployees(arrayEmployees, length))
+        if(arrayEmployees[i].salary > averageSalaryAmongEmployees(arrayEmployees, length) && arrayEmployees[i].status == OCUPADO)
         {
             empleadosConSalarioSuperior++;
         }
@@ -330,7 +317,7 @@ int initEmployees(Employee arrayEmployees [], int length)
     return 0;
 }
 
-int findEmployeeById(Employee arrayEmployees [], int length, int id)
+int getEmployeeById(Employee arrayEmployees [], int length, int id)
 {
     int i;
     int posicionEnIndice = -1;
@@ -355,7 +342,7 @@ void validateId(int index)
 
 }
 
-void findAnEmployeeToDelete(Employee arrayEmployees [], int length)
+void getEmployeeToDelete(Employee arrayEmployees [], int length)
 {
     if(verifyExistenceOfEmployees(arrayEmployees, length))
     {
@@ -369,11 +356,11 @@ void findAnEmployeeToDelete(Employee arrayEmployees [], int length)
         scanf("%c", &opcion);
         if(opcion == 's')
         {
-            removeEmployee(arrayEmployees, length, idEmpleadoABorrar);
+            deleteEmployee(arrayEmployees, length, idEmpleadoABorrar);
         }
         else
         {
-            printf("\nNo se borro el empleado.");
+            printf("\nNo se borro ningun empleado.");
         }
     }
     else
@@ -383,7 +370,7 @@ void findAnEmployeeToDelete(Employee arrayEmployees [], int length)
 }
 
 
-int removeEmployee(Employee arrayEmployees [], int length, int id)
+int deleteEmployee(Employee arrayEmployees [], int length, int id)
 {
     int i;
     int retorno = -1;
@@ -453,7 +440,7 @@ int sortEmployees(Employee arrayEmployees [], int length, int order)
 int printEmployees(Employee arrayEmployees[], int length)
 {
     int i;
-    printf("%4s %21s %21s %11s %7s \n", "ID", "NOMBRE", "APELLIDO", "SALARIO", "SECTOR");
+    printf("%4s %13s %13s %13s %13s \n", "ID", "NOMBRE", "APELLIDO", "SALARIO", "SECTOR");
     for(i=0; i<length; i++)
     {
         if(arrayEmployees[i].status == OCUPADO)
@@ -469,7 +456,7 @@ int printEmployees(Employee arrayEmployees[], int length)
 
 void printAnEmployee(Employee anEmployee)
 {
-    printf("%4d %21s %21s %11.2f %7d \n",anEmployee.id,
+    printf("%4d %13s %13s %13.2f %13d \n",anEmployee.id,
                                          anEmployee.name,
                                          anEmployee.lastName,
                                          anEmployee.salary,
@@ -477,7 +464,7 @@ void printAnEmployee(Employee anEmployee)
                                          );
 }
 
- int verifyExistenceOfEmployees(Employee arrayEmployees [], int length)
+int verifyExistenceOfEmployees(Employee arrayEmployees [], int length)
  {
      int i;
      int verificacion = 0;

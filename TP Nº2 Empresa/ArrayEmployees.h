@@ -23,7 +23,7 @@ int findEmptyPlace(Employee arrayEmployees[],int length);
  *
  */
 
-void findAnEmployeeToDelete(Employee arrayEmployees[], int length);
+void getEmployeeToDelete(Employee arrayEmployees[], int length);
 /** \brief It seeks an employee to delete
  *
  * \param arrayEmployees[] Employee
@@ -52,8 +52,8 @@ Employee modifyItem(Employee anEmployee);
  *
  */
 
-void reportInformation(Employee arrayEmployees[], int length);
-/** \brief it reports information such as the average wage and a list ordered alphabetically
+void getAverageAndSortedList(Employee arrayEmployees[], int length);
+/** \brief it allows the user to get information such as the average wage and a list ordered alphabetically
  *
  * \param arrayEmployees[] Employee
  * \param length int
@@ -126,8 +126,8 @@ void createAnEmployee (Employee arrayEmployees[],int length);
  */
 
 
-int findEmployeeById(Employee arrayEmployees [], int length,int id);
-/** \brief it seeks an employee by its id
+int getEmployeeById(Employee arrayEmployees [], int length,int id);
+/** \brief it gets an employee by its id
  *
  * \param [] Employee arrayEmployees
  * \param length int
@@ -137,18 +137,7 @@ int findEmployeeById(Employee arrayEmployees [], int length,int id);
  */
 
 
-
-
-void reportAverageSalary(float promedio);
-/** \brief  it shows the average salary of the company
- *
- * \param promedio float
- * \return void
- *
- */
-
-
-int removeEmployee(Employee arrayEmployees [], int length, int id);
+int deleteEmployee(Employee arrayEmployees [], int length, int id);
 /** \brief It deletes an employee by changing its status to LIBRE
  *
  * \param [] Employee arrayEmployees
@@ -207,5 +196,12 @@ int generateNewID (Employee arrayEmployees [], int length);
  * \return void
  */
 
- int verifyExistenceOfEmployees(Employee arrayEmployees [], int length);
 
+ int verifyExistenceOfEmployees(Employee arrayEmployees [], int length);
+ /** \brief It verifies the existence of at least one employee in the company
+  *
+  * \param [] Employee arrayEmployees
+  * \param length int
+  * \return int
+  *
+  */
