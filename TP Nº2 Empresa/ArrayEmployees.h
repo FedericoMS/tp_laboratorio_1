@@ -5,32 +5,12 @@
 struct
 {
 int id;
-char name[21];
-char lastName[21];
+char name[51];
+char lastName[51];
 float salary;
 int sector;
 int status;
 }typedef Employee;
-
-
-
-int findEmptyPlace(Employee arrayEmployees[],int length);
-/** \brief it searches an empty place in the array
- *
- * \param arrayEmployees[] Employee
- * \param length int
- * \return int
- *
- */
-
-void getEmployeeToDelete(Employee arrayEmployees[], int length);
-/** \brief It seeks an employee to delete
- *
- * \param arrayEmployees[] Employee
- * \param length int
- * \return void
- *
- */
 
 
 void modifyEmployee(Employee arrayEmployees[], int length);
@@ -137,6 +117,16 @@ int getEmployeeById(Employee arrayEmployees [], int length,int id);
  */
 
 
+int findEmptyPlace(Employee arrayEmployees[],int length);
+/** \brief it searches an empty place in the array
+ *
+ * \param arrayEmployees[] Employee
+ * \param length int
+ * \return int
+ *
+ */
+
+
 int deleteEmployee(Employee arrayEmployees [], int length, int id);
 /** \brief It deletes an employee by changing its status to LIBRE
  *
@@ -160,6 +150,23 @@ indicate UP or DOWN order
 *
 */
 
+int getNewID(Employee arrayEmployees [], int length);
+/** \brief generates an id for a new employee
+ *
+ * \param  Employee arrayEmployees []
+ * \param int length
+ * \return void
+ */
+
+
+void getEmployeeToDelete(Employee arrayEmployees[], int length);
+/** \brief It seeks an employee to delete
+ *
+ * \param arrayEmployees[] Employee
+ * \param length int
+ * \return void
+ *
+ */
 
 int printEmployees(Employee arrayEmployees[], int length);
 /** \brief print the content of employees array
@@ -185,15 +192,6 @@ char menu();
  *
  * \return char
  *
- */
-
-
-int generateNewID (Employee arrayEmployees [], int length);
-/** \brief generates an id for a new employee
- *
- * \param  Employee arrayEmployees []
- * \param int length
- * \return void
  */
 
 

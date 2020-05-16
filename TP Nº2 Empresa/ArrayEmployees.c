@@ -20,7 +20,7 @@ char menu()
 int findEmptyPlace(Employee arrayEmployees [],int length)
 {
     int i;
-    int indice=-1;
+    int indice = -1;
     for(i=0; i<length; i++)
     {
         if(arrayEmployees[i].status==LIBRE)
@@ -35,11 +35,11 @@ int findEmptyPlace(Employee arrayEmployees [],int length)
 
 void modifyEmployee(Employee arrayEmployees[], int length)
 {
-    char respuesta;
-    int i;
-    int idAux;
     if(verifyExistenceOfEmployees(arrayEmployees, length))
     {
+        char respuesta;
+        int i;
+        int idAux;
         system("cls");
         int existeEmpleado = 0;
         printf("Desea modificar algun empleado? s/n \n");
@@ -47,7 +47,7 @@ void modifyEmployee(Employee arrayEmployees[], int length)
         if(respuesta == 's')
         {
             printEmployees(arrayEmployees, length);
-            idAux = getInt("Ingrese el ID del empleado para modificar ", "Error, el valor ingresado no es valido", 100, 1200);
+            idAux = getInt("Ingrese el ID del empleado para modificar\n", "Error, el valor ingresado no es valido\n", 100, 1200);
             for(i=0; i<length; i++)
             {
                 if(idAux == arrayEmployees[i].id)
@@ -96,66 +96,66 @@ Employee modifyItem(Employee anEmployee)
     {
         case 'a':
             getString("Ingrese el nuevo nombre: \n", "Error, ingrese un nombre valido\n" , modifiedEmployee.name);
-            printf("Esta seguro que quiere cambiar el nombre de su empleado por %s ? s/n", modifiedEmployee.name);
+            printf("Desea confirmar el cambio del nombre de su empleado por %s ? Ingrese s para confirmar", modifiedEmployee.name);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
             {
                 anEmployee = modifiedEmployee;
-                printf("Se modifico el nombre a: %s\n", anEmployee.name);
+                printf("Se cambio el nombre a: %s\n", anEmployee.name);
             }
             else
             {
-                printf("No se modifico el nombre\n");
+                printf("No se cambio el nombre\n");
             }
             fflush(stdin);
             break;
 
         case 'b':
             getString("Ingrese el nuevo apellido: \n", "Error, ingrese un nombre valido\n" , modifiedEmployee.lastName);
-            printf("Esta seguro que quiere cambiar el nombre de su empleado por %s ? s/n", modifiedEmployee.lastName);
+            printf("Desea confirmar el cambio de apellido de su empleado por %s ? Ingrese s para confirmar", modifiedEmployee.lastName);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
             {
                 anEmployee = modifiedEmployee;
-                printf("Se modifico el apellido a: %s\n", anEmployee.lastName);
+                printf("Se cambio el apellido a: %s\n", anEmployee.lastName);
             }
             else
             {
-                printf("No se modifico el apellido\n");
+                printf("No se cambio el apellido\n");
             }
             fflush(stdin);
             break;
         case 'c':
             modifiedEmployee.salary = getFloat("Ingrese el nuevo salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
-            printf("Esta seguro que quiere cambiar el salario de su empleado por %.2f ? s/n", modifiedEmployee.salary);
+            printf("Desea confirmar el cambio de salario de su empleado por %.2f ? Ingrese s para confirmar", modifiedEmployee.salary);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
             {
                 anEmployee = modifiedEmployee;
-                printf("Se modifico el salario a: %.2f\n", anEmployee.salary);
+                printf("Se cambio el salario a: %.2f\n", anEmployee.salary);
             }
             else
             {
-                printf("No se modifico el salario\n");
+                printf("No se cambio el salario\n");
             }
             fflush(stdin);
             break;
         case 'd':
             modifiedEmployee.sector = getInt("\nIngrese el nuevo sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
-            printf("Esta seguro que quiere cambiar el sector de su empleado por %d ? s/n", modifiedEmployee.sector);
+            printf("Desea confirmar el cambio de sector de su empleado por %d ? Ingrese s para confirmar", modifiedEmployee.sector);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
             {
                 anEmployee = modifiedEmployee;
-                printf("Se modifico el sector a: %d\n", anEmployee.sector);
+                printf("Se cambio el sector a: %d\n", anEmployee.sector);
             }
             else
             {
-                printf("No se modifico el sector\n");
+                printf("No se cambio el sector\n");
             }
              fflush(stdin);
         case 'e':
@@ -175,7 +175,7 @@ void createAnEmployee (Employee arrayEmployees[], int length)
   Employee anEmployee;
 
     system("cls");
-    anEmployee.id = generateNewID(arrayEmployees, length);
+    anEmployee.id = getNewID(arrayEmployees, length);
     getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
     getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
     anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
@@ -189,6 +189,7 @@ int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char 
 {
     int indice;
     indice = findEmptyPlace(arrayEmployees, length);
+
     if(indice != -1)
     {
         arrayEmployees[indice].id = id;
@@ -201,7 +202,7 @@ int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char 
     }
     else
     {
-        printf("No hay lugar\n");
+        printf("No hay lugar disponible\n");
     }
     return indice;
 }
@@ -280,7 +281,7 @@ int salariesAboveTheAverage(Employee arrayEmployees [], int length)
     return empleadosConSalarioSuperior;
 }
 
-int generateNewID(Employee arrayEmployees [], int length)
+int getNewID(Employee arrayEmployees [], int length)
 {
     int i;
     int newId;

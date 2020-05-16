@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-
 int getInt(char message[], char errorMessage[], int min, int max);
 /** \brief It returns a validated int
  *

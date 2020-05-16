@@ -1,7 +1,6 @@
 #include "auxiliarFunctions.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 void getString(char message[], char errorMessage[], char string[])
 {
     printf("%s", message);
@@ -19,7 +18,6 @@ void getString(char message[], char errorMessage[], char string[])
         }
     }
 }
-
 
 float getFloat(char message[], char errorMessage[], int min, int max)
 
