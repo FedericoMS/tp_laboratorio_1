@@ -3,7 +3,7 @@
 char menu()
 {
     char opcion;
-    printf("\n Ingrese una opcion");
+    printf("Ingrese una opcion");
     printf("\n a. Altas.");
     printf("\n b. Modificar");
     printf("\n c. Baja");
@@ -12,25 +12,6 @@ char menu()
     opcion = getLetter("Ingrese una letra de la lista para seleccionar una opcion\n", "Error, opcion no valida\n");
     return opcion;
 }
-
-
-
-
-int findEmptyPlace(Employee arrayEmployees [],int length)
-{
-    int i;
-    int indice = -1;
-    for(i=0; i<length; i++)
-    {
-        if(arrayEmployees[i].status==LIBRE)
-        {
-            indice = i;
-            break;
-        }
-   }
-   return indice;
-}
-
 
 void modifyEmployee(Employee arrayEmployees[], int length)
 {
@@ -318,6 +299,21 @@ int initEmployees(Employee arrayEmployees [], int length)
     }
 
     return 0;
+}
+
+int findEmptyPlace(Employee arrayEmployees [],int length)
+{
+    int i;
+    int indice = -1;
+    for(i=0; i<length; i++)
+    {
+        if(arrayEmployees[i].status==LIBRE)
+        {
+            indice = i;
+            break;
+        }
+   }
+   return indice;
 }
 
 int getEmployeeById(Employee arrayEmployees [], int length, int id)
