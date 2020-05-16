@@ -4,7 +4,6 @@
 #include "ArrayEmployees.h"
 #define TamEmpresa 1000
 
-//Nota: BORRAR HARDCODEO ANTES DE ENTREGAR
 int main()
 {
     Employee EmployeeArray[TamEmpresa];
