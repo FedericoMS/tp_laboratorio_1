@@ -1,0 +1,107 @@
+# depslib dependency file v1.0
+1589206519 source:c:\users\fede\desktop\tp 2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589158674 source:c:\users\fede\desktop\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1589206537 c:\users\fede\desktop\tp 2\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589223645 source:c:\users\filomena\downloads\tp 2s\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1589231912 c:\users\filomena\downloads\tp 2s\tp 2\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589231912 source:c:\users\filomena\downloads\tp 2s\tp 2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589247046 source:c:\users\fede\desktop\tp 2 editado x nelson\tp 2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589247046 c:\users\fede\desktop\tp 2 editado x nelson\tp 2\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589231983 source:c:\users\fede\desktop\tp 2 editado x nelson\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1589247046 source:c:\users\fede\desktop\tp 2 actual\tp 2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589247046 c:\users\fede\desktop\tp 2 actual\tp 2\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589231983 source:c:\users\fede\desktop\tp 2 actual\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1589303458 source:c:\users\fede\desktop\study & work\proyectos c\trabajos prácticos\tp n2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589299355 c:\users\fede\desktop\study & work\proyectos c\trabajos prácticos\tp n2\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589294440 source:c:\users\fede\desktop\study & work\proyectos c\trabajos prácticos\tp n2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1589594992 source:c:\users\fede\desktop\tp n2\arrayemployees.c
+	"ArrayEmployees.h"
+	"auxiliarFunctions.h"
+
+1589594774 c:\users\fede\desktop\tp n2\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589595032 source:c:\users\fede\desktop\tp n2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"auxiliarFunctions.h"
+	"ArrayEmployees.h"
+
+1589592832 c:\users\fede\desktop\tp n2\auxiliarfunctions.h
+	<stdio.h>
+	<string.h>
+
+1589592832 source:c:\users\fede\desktop\tp n2\auxiliarfunctions.c
+	"auxiliarFunctions.h"
+	<stdio.h>
+	<stdlib.h>
+
+1589596829 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.c
+	"auxiliarFunctions.h"
+	<stdio.h>
+	<stdlib.h>
+
+1589596978 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.h
+	<stdio.h>
+	<string.h>
+
+1589595485 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
+	<stdio.h>
+	<stdlib.h>
+	"auxiliarFunctions.h"
+	"ArrayEmployees.h"
+
+1589595300 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.h
+	<stdio.h>
+	<string.h>
+
+1589596547 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
+	"ArrayEmployees.h"
+	"auxiliarFunctions.h"
+
