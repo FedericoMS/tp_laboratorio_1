@@ -10,7 +10,6 @@ char menu()
     printf("\n d. Informar");
     printf("\n e. Salir\n");
     opcion = getLetter("Ingrese una letra de la lista para seleccionar una opcion\n", "Error, opcion no valida\n");
-    fflush(stdin);
     return opcion;
 }
 
@@ -42,8 +41,7 @@ void modifyEmployee(Employee arrayEmployees[], int length)
         int idAux;
         system("cls");
         int existeEmpleado = 0;
-        printf("Desea modificar algun empleado? s/n \n");
-        scanf("%c", &respuesta); //OBSERVAR LUEGO SI ESTO ANDA BIEN
+        respuesta = getLetter("Desea modificar algun empleado? Ingrese s para cofirmar\n", "Error, opcion no valida\n");
         if(respuesta == 's')
         {
             printEmployees(arrayEmployees, length);
@@ -66,7 +64,6 @@ void modifyEmployee(Employee arrayEmployees[], int length)
 
             }
         }
-
         if(existeEmpleado == 0)
         {
             printf("El id ingresado es incorrecto o no existe\n");
@@ -96,7 +93,7 @@ Employee modifyItem(Employee anEmployee)
     {
         case 'a':
             getString("Ingrese el nuevo nombre: \n", "Error, ingrese un nombre valido\n" , modifiedEmployee.name);
-            printf("Desea confirmar el cambio del nombre de su empleado por %s ? Ingrese s para confirmar", modifiedEmployee.name);
+            printf("Desea confirmar el cambio del nombre de su empleado por %s ? Ingrese s para confirmar\n", modifiedEmployee.name);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
@@ -113,7 +110,7 @@ Employee modifyItem(Employee anEmployee)
 
         case 'b':
             getString("Ingrese el nuevo apellido: \n", "Error, ingrese un nombre valido\n" , modifiedEmployee.lastName);
-            printf("Desea confirmar el cambio de apellido de su empleado por %s ? Ingrese s para confirmar", modifiedEmployee.lastName);
+            printf("Desea confirmar el cambio de apellido de su empleado por %s ? Ingrese s para confirmar\n", modifiedEmployee.lastName);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
@@ -129,7 +126,7 @@ Employee modifyItem(Employee anEmployee)
             break;
         case 'c':
             modifiedEmployee.salary = getFloat("Ingrese el nuevo salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
-            printf("Desea confirmar el cambio de salario de su empleado por %.2f ? Ingrese s para confirmar", modifiedEmployee.salary);
+            printf("Desea confirmar el cambio de salario de su empleado por %.2f ? Ingrese s para confirmar\n", modifiedEmployee.salary);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
@@ -145,7 +142,7 @@ Employee modifyItem(Employee anEmployee)
             break;
         case 'd':
             modifiedEmployee.sector = getInt("\nIngrese el nuevo sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
-            printf("Desea confirmar el cambio de sector de su empleado por %d ? Ingrese s para confirmar", modifiedEmployee.sector);
+            printf("Desea confirmar el cambio de sector de su empleado por %d ? Ingrese s para confirmar\n", modifiedEmployee.sector);
             fflush(stdin);
             scanf("%c", &opcion);
             if(opcion == 's')
@@ -158,6 +155,7 @@ Employee modifyItem(Employee anEmployee)
                 printf("No se cambio el sector\n");
             }
              fflush(stdin);
+             break;
         case 'e':
             break;
         default:
@@ -229,7 +227,11 @@ void getAverageAndSortedList(Employee arrayEmployees [], int length)
             printf("El promedio de sueldos entre empleados de la compania es %.2f\n", averageSalaryAmongEmployees(arrayEmployees, length));
             printf("La cantidad de empleados con salarios superior al promedio son: %d\n", salariesAboveTheAverage(arrayEmployees, length));
             break;
-
+        case 'c':
+            printf("Preparando para cerrar\n");
+            break;
+       default:
+            break;
         }
     }
     else
@@ -351,8 +353,8 @@ void getEmployeeToDelete(Employee arrayEmployees [], int length)
         int idEmpleadoABorrar;
         char opcion;
         printEmployees(arrayEmployees, length);
-        idEmpleadoABorrar = getInt("\nIngrese el ID del empleado que desea eliminar", "Error, ingrese el id de nuevo\n", 99, 1100);
-        printf("Esta seguro de que quiere borrar dicho empleado? Ingrese s para confirmar");
+        idEmpleadoABorrar = getInt("Ingrese el ID del empleado que desea eliminar\n", "Error, ingrese el id de nuevo\n", 99, 1100);
+        printf("Esta seguro de que quiere borrar dicho empleado? Ingrese s para confirmar\n");
         fflush(stdin);
         scanf("%c", &opcion);
         if(opcion == 's')
@@ -441,7 +443,7 @@ int sortEmployees(Employee arrayEmployees [], int length, int order)
 int printEmployees(Employee arrayEmployees[], int length)
 {
     int i;
-    printf("%4s %13s %13s %13s %13s \n", "ID", "NOMBRE", "APELLIDO", "SALARIO", "SECTOR");
+    printf("%4s %18s %18s %18s %18s \n", "ID", "NOMBRE", "APELLIDO", "SALARIO", "SECTOR");
     for(i=0; i<length; i++)
     {
         if(arrayEmployees[i].status == OCUPADO)
@@ -457,7 +459,7 @@ int printEmployees(Employee arrayEmployees[], int length)
 
 void printAnEmployee(Employee anEmployee)
 {
-    printf("%4d %13s %13s %13.2f %13d \n",anEmployee.id,
+    printf("%4d %17s %17s %19.2f %17d \n",anEmployee.id,
                                          anEmployee.name,
                                          anEmployee.lastName,
                                          anEmployee.salary,

@@ -17,7 +17,6 @@ int main()
             createAnEmployee(EmployeeArray, TamEmpresa);
             fflush(stdin);
             break;
-
         case 'b':
             modifyEmployee(EmployeeArray, TamEmpresa);
             fflush(stdin);
@@ -35,14 +34,11 @@ int main()
             break;
        default:
             printf("Opcion incorrecta\n");
-            fflush(stdin);
             break;
-
     }
-
     system("pause");
     system("cls");
-}while(opcion != 'e');
+    }while(opcion != 'e');
 
 }
 

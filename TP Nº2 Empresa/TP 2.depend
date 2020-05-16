@@ -87,21 +87,21 @@
 	<stdio.h>
 	<stdlib.h>
 
-1589647825 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.h
+1589650646 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\auxiliarfunctions.h
 	<stdio.h>
 	<string.h>
 
-1589643610 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
+1589652242 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
 	<stdio.h>
 	<stdlib.h>
 	"auxiliarFunctions.h"
 	"ArrayEmployees.h"
 
-1589649086 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.h
+1589649361 c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.h
 	<stdio.h>
 	<string.h>
 
-1589643610 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
+1589651371 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
 	"ArrayEmployees.h"
 	"auxiliarFunctions.h"
 
