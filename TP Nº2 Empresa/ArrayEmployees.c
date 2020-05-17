@@ -4,7 +4,7 @@ char menu()
 {
     char opcion;
     printf("Ingrese una opcion");
-    printf("\n a. Altas.");
+    printf("\n a. Altas");
     printf("\n b. Modificar");
     printf("\n c. Baja");
     printf("\n d. Informar");
@@ -12,6 +12,22 @@ char menu()
     opcion = getLetter("Ingrese una letra de la lista para seleccionar una opcion\n", "Error, opcion no valida\n");
     return opcion;
 }
+
+int verifyExistenceOfEmployees(Employee arrayEmployees [], int length)
+ {
+     int i;
+     int verificacion = 0;
+     for(i=0; i<length; i++)
+     {
+         if(arrayEmployees[i].status == OCUPADO)
+         {
+             verificacion = 1;
+             break;
+         }
+     }
+
+     return verificacion;
+ }
 
 void modifyEmployee(Employee arrayEmployees[], int length)
 {
@@ -141,7 +157,7 @@ Employee modifyItem(Employee anEmployee)
             break;
         default:
             printf("Opcion incorrecta\n");
-            fflush(stdin);
+            break;
 
     }
     return modifiedEmployee;
@@ -149,6 +165,47 @@ Employee modifyItem(Employee anEmployee)
 }
 
 
+float averageSalaryAmongEmployees(Employee arrayEmployees [], int length)
+{
+    int i;
+    float promedioSueldos = 0;
+    int sumatoriaDeSalarios = 0;
+    int cantidadDeEmpleados = 0;
+
+    for(i=0; i<length; i++)
+    {
+        if(arrayEmployees[i].status != LIBRE)
+        {
+            sumatoriaDeSalarios = sumatoriaDeSalarios + arrayEmployees[i].salary;
+            cantidadDeEmpleados++;
+        }
+    }
+    promedioSueldos  = promedio(sumatoriaDeSalarios, cantidadDeEmpleados);
+    return promedioSueldos;
+}
+
+float promedio(int acumuladorValores, int cantidadValores)
+{
+    float resultado;
+    resultado = (float)acumuladorValores / cantidadValores;
+    return resultado;
+}
+
+int salariesAboveTheAverage(Employee arrayEmployees [], int length)
+{
+    int i;
+    int empleadosConSalarioSuperior = 0;
+
+    for(i=0; i<length; i++)
+    {
+        if(arrayEmployees[i].salary > averageSalaryAmongEmployees(arrayEmployees, length) && arrayEmployees[i].status == OCUPADO)
+        {
+            empleadosConSalarioSuperior++;
+        }
+    }
+
+    return empleadosConSalarioSuperior;
+}
 
 void getAverageAndSortedList(Employee arrayEmployees [], int length)
 {
@@ -185,48 +242,6 @@ void getAverageAndSortedList(Employee arrayEmployees [], int length)
 
 }
 
-
-float averageSalaryAmongEmployees(Employee arrayEmployees [], int length)
-{
-    int i;
-    int sumatoriaDeSalarios = 0;
-    int cantidadDeEmpleados = 0;
-    float promedioSueldos = 0;
-    for(i=0; i<length; i++)
-    {
-        if(arrayEmployees[i].status == OCUPADO)
-        {
-            sumatoriaDeSalarios = sumatoriaDeSalarios + arrayEmployees[i].salary;
-            cantidadDeEmpleados++;
-        }
-    }
-    promedioSueldos  = promedio(sumatoriaDeSalarios, cantidadDeEmpleados);
-    return promedioSueldos;
-}
-
-float promedio(int acumuladorValores, int cantidadValores)
-{
-    float resultado;
-    resultado = (float)acumuladorValores / cantidadValores;
-    return resultado;
-}
-
-int salariesAboveTheAverage(Employee arrayEmployees [], int length)
-{
-    int i;
-    int empleadosConSalarioSuperior = 0;
-
-    for(i=0; i<length; i++)
-    {
-        if(arrayEmployees[i].salary > averageSalaryAmongEmployees(arrayEmployees, length) && arrayEmployees[i].status == OCUPADO)
-        {
-            empleadosConSalarioSuperior++;
-        }
-    }
-
-    return empleadosConSalarioSuperior;
-}
-
 int getNewID(Employee arrayEmployees [], int length)
 {
     int i;
@@ -253,30 +268,17 @@ int getNewID(Employee arrayEmployees [], int length)
     return newId;
 }
 
-void createAnEmployee (Employee arrayEmployees[], int length)
-{
-  Employee anEmployee;
-
-    system("cls");
-    anEmployee.id = getNewID(arrayEmployees, length);
-    getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
-    getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
-    anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
-    anEmployee.sector = getInt("Ingrese el sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
-    addEmployee(arrayEmployees, length, anEmployee.id, anEmployee.name, anEmployee.lastName, anEmployee.salary, anEmployee.sector);
-
-
-}
-
 int initEmployees(Employee arrayEmployees [], int length)
 {
     int i;
+    int retorno = -1;
     for(i=0; i<length; i++)
     {
         arrayEmployees[i].status = 0;
+        retorno = 0;
     }
 
-    return 0;
+    return retorno;
 }
 
 int findEmptyPlace(Employee arrayEmployees [],int length)
@@ -285,7 +287,7 @@ int findEmptyPlace(Employee arrayEmployees [],int length)
     int indice = -1;
     for(i=0; i<length; i++)
     {
-        if(arrayEmployees[i].status==LIBRE)
+        if(arrayEmployees[i].status == LIBRE)
         {
             indice = i;
             break;
@@ -368,6 +370,20 @@ int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char 
         printf("No hay lugar disponible\n");
     }
     return indice;
+}
+
+void createAnEmployee (Employee arrayEmployees[], int length)
+{
+  Employee anEmployee;
+
+    system("cls");
+    anEmployee.id = getNewID(arrayEmployees, length);
+    getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
+    getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
+    anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
+    anEmployee.sector = getInt("Ingrese el sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
+
+    addEmployee(arrayEmployees, length, anEmployee.id, anEmployee.name, anEmployee.lastName, anEmployee.salary, anEmployee.sector);
 }
 
 int deleteEmployee(Employee arrayEmployees [], int length, int id)
@@ -464,18 +480,3 @@ void printAnEmployee(Employee anEmployee)
                                          );
 }
 
-int verifyExistenceOfEmployees(Employee arrayEmployees [], int length)
- {
-     int i;
-     int verificacion = 0;
-     for(i=0; i<length; i++)
-     {
-         if(arrayEmployees[i].status == OCUPADO)
-         {
-             verificacion = 1;
-             break;
-         }
-     }
-
-     return verificacion;
- }

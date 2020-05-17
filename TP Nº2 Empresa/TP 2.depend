@@ -91,7 +91,7 @@
 	<stdio.h>
 	<string.h>
 
-1589652242 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
+1589682048 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\main.c
 	<stdio.h>
 	<stdlib.h>
 	"auxiliarFunctions.h"
@@ -101,7 +101,7 @@
 	<stdio.h>
 	<string.h>
 
-1589678791 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
+1589682711 source:c:\funciones en c\tp_laboratorio_1\tp nº2 empresa\arrayemployees.c
 	"ArrayEmployees.h"
 	"auxiliarFunctions.h"
 

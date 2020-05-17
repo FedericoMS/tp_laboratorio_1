@@ -15,19 +15,15 @@ int main()
     {
         case 'a':
             createAnEmployee(EmployeeArray, TamEmpresa);
-            fflush(stdin);
             break;
         case 'b':
             modifyEmployee(EmployeeArray, TamEmpresa);
-            fflush(stdin);
             break;
         case 'c':
             getEmployeeToDelete(EmployeeArray, TamEmpresa);
-            fflush(stdin);
             break;
         case 'd':
             getAverageAndSortedList(EmployeeArray, TamEmpresa);
-            fflush(stdin);
             break;
         case 'e':
             printf("Preparando para cerrar\n");
