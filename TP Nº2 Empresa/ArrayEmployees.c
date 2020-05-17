@@ -149,43 +149,6 @@ Employee modifyItem(Employee anEmployee)
 }
 
 
-void createAnEmployee (Employee arrayEmployees[], int length)
-{
-  Employee anEmployee;
-
-    system("cls");
-    anEmployee.id = getNewID(arrayEmployees, length);
-    getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
-    getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
-    anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
-    anEmployee.sector = getInt("Ingrese el sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
-    addEmployee(arrayEmployees, length, anEmployee.id, anEmployee.name, anEmployee.lastName, anEmployee.salary, anEmployee.sector);
-
-
-}
-
-int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char lastName[],float salary,int sector)
-{
-    int indice;
-    indice = findEmptyPlace(arrayEmployees, length);
-
-    if(indice != -1)
-    {
-        arrayEmployees[indice].id = id;
-        strcpy(arrayEmployees[indice].name, name);
-        strcpy(arrayEmployees[indice].lastName, lastName);
-        arrayEmployees[indice].salary = salary;
-        arrayEmployees[indice].sector = sector;
-        arrayEmployees[indice].status = OCUPADO;
-
-    }
-    else
-    {
-        printf("No hay lugar disponible\n");
-    }
-    return indice;
-}
-
 
 void getAverageAndSortedList(Employee arrayEmployees [], int length)
 {
@@ -290,6 +253,21 @@ int getNewID(Employee arrayEmployees [], int length)
     return newId;
 }
 
+void createAnEmployee (Employee arrayEmployees[], int length)
+{
+  Employee anEmployee;
+
+    system("cls");
+    anEmployee.id = getNewID(arrayEmployees, length);
+    getString("Ingrese el nombre: \n", "Error, ingrese un nombre valido\n" , anEmployee.name);
+    getString("Ingrese el apellido: \n", "Error, ingrese un apellido valido\n" , anEmployee.lastName);
+    anEmployee.salary = getFloat("Ingrese el  salario para su empleado entre 1 y 1000000\n", "Error, ingrese un salario valido\n", 1, 1000000);
+    anEmployee.sector = getInt("Ingrese el sector para su empleado entre 1 y 20\n", "Error, ingrese un sector valido\n", 1, 20);
+    addEmployee(arrayEmployees, length, anEmployee.id, anEmployee.name, anEmployee.lastName, anEmployee.salary, anEmployee.sector);
+
+
+}
+
 int initEmployees(Employee arrayEmployees [], int length)
 {
     int i;
@@ -368,6 +346,29 @@ void getEmployeeToDelete(Employee arrayEmployees [], int length)
     }
 }
 
+
+
+int addEmployee(Employee arrayEmployees[], int length, int id, char name[],char lastName[],float salary,int sector)
+{
+    int indice;
+    indice = findEmptyPlace(arrayEmployees, length);
+
+    if(indice != -1)
+    {
+        arrayEmployees[indice].id = id;
+        strcpy(arrayEmployees[indice].name, name);
+        strcpy(arrayEmployees[indice].lastName, lastName);
+        arrayEmployees[indice].salary = salary;
+        arrayEmployees[indice].sector = sector;
+        arrayEmployees[indice].status = OCUPADO;
+
+    }
+    else
+    {
+        printf("No hay lugar disponible\n");
+    }
+    return indice;
+}
 
 int deleteEmployee(Employee arrayEmployees [], int length, int id)
 {
