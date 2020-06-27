@@ -17,7 +17,7 @@ LinkedList* ll_newLinkedList(void)
     LinkedList* this;
 
     this = (LinkedList*) malloc(sizeof(LinkedList));
-    if(this!=NULL)
+    if(this != NULL)
     {
         this->size = 0;
         this->pFirstNode = NULL;
@@ -547,15 +547,15 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
             {
                 for(i=0; i<size-1; i++)
                 {
-                    pPrimerElemento = ll_get(this, i);
                     for(j=i+1; j<size; j++)
                     {
+                        pPrimerElemento = ll_get(this, i);
                         pSegundoElemento = ll_get(this, j);
                         if(pFunc(pPrimerElemento, pSegundoElemento) > 0)
                         {
-                            // pAux = pPrimerElemento;
+                            pAux = pPrimerElemento;
                             ll_set(this, i, pSegundoElemento);
-                            ll_set(this, j, pPrimerElemento);
+                            ll_set(this, j, pAux);
                         }
                     }
                 }
@@ -564,15 +564,15 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
             {
                 for(i=0; i<size-1; i++)
                 {
-                    pPrimerElemento = ll_get(this, i);
                     for(j=i+1; j<size; j++)
                     {
+                        pPrimerElemento = ll_get(this, i);
                         pSegundoElemento = ll_get(this, j);
                         if(pFunc(pPrimerElemento, pSegundoElemento) < 0)
                         {
-                            // pAux = pPrimerElemento;
+                            pAux = pPrimerElemento;
                             ll_set(this, i, pSegundoElemento);
-                            ll_set(this, j, pPrimerElemento);
+                            ll_set(this, j, pAux);
                         }
                     }
                 }
