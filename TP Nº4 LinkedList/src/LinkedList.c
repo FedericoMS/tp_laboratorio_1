@@ -97,7 +97,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     Node* prev = NULL;
     Node* next = NULL; // No es necesario el malloc
 
-    if(this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this)) //pElement PUEDE ser null, lo que no puede ser null es la lista//Empezó a funcionar mejor con el <=
+    if(this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this)) //pElement PUEDE ser null, lo que no puede ser null es la lista
     {
         int size = ll_len(this);
         Node* nuevoNodo = (Node*)malloc(sizeof(Node));//Se crea recién luego de verificar el if
@@ -218,7 +218,6 @@ int ll_set(LinkedList* this, int index,void* pElement)
             nodoActual->pElement = pElement;
             returnAux = 0;
         }
-
     }
     return returnAux;
 }
